@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import { auth } from '../Config/Config'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { auth } from '../Config/Config';
+import { Link } from 'react-router-dom';
+import '../Login.css'; 
+import logo from '../images/ecommerceland.png'
 
 export const Login = (props) => {
 
@@ -19,26 +21,36 @@ export const Login = (props) => {
     }
 
     return (
-        <div className='container'>
-            <br />
-            <h2>Login</h2>
-            <br />
-            <form autoComplete="off" className='form-group' onSubmit={login}>
-                <label htmlFor="email">Email</label>
-                <input type="email" className='form-control' required
-                    onChange={(e) => setEmail(e.target.value)} value={email} />
-                <br />
-                <label htmlFor="password">Password</label>
-                <input type="password" className='form-control' required
-                    onChange={(e) => setPassword(e.target.value)} value={password} />
-                <br />
-                <button type="submit" className='btn btn-success btn-md mybtn'>LOGIN</button>
-            </form>
-            {error && <span className='error-msg'>{error}</span>}
-            <br/>
-            <span>Don't have an account? Register
-                <Link to="signup"> Here</Link>
-            </span>
+        <div className='login-container'>
+            <div className='login-form'>
+                <img className='logo' src={logo} alt="Logo" />
+                <h2>Sign in</h2>
+                <form autoComplete="off" onSubmit={login}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        required
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                    />
+                    <div className='remember-me'>
+                        <input type="checkbox" id="remember" />
+                        <label htmlFor="remember">Remember password</label>
+                    </div>
+                    <button type="submit" className='login-btn'>LOGIN</button>
+                </form>
+                {error && <span className='error-msg'>{error}</span>}
+                <span>Don't have an account? Register
+                    <Link to="signup"> Here</Link>
+                </span>
+            </div>
         </div>
-    )
-}
+    );
+};
