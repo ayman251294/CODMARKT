@@ -27,7 +27,7 @@ export const Cart = ({ user }) => {
         <>
             <Navbar user={user} />
             <>
-                {shoppingCart.length !== 0 && <h1>Cart</h1>}
+                {shoppingCart.length !== 0 && <h1>Shopping Cart</h1>}
                 <div className='cart-container'>
                     {
                         shoppingCart.length === 0 && <>
@@ -44,7 +44,7 @@ export const Cart = ({ user }) => {
 
                             <div className='cart-name'>{cart.ProductName}</div>
 
-                            <div className='cart-price-orignal'>Rs {cart.ProductPrice}.00</div>
+                            <div className='cart-price-orignal'>{cart.ProductPrice}.00 MAD</div>
 
                             <div className='inc' onClick={() => dispatch({ type: 'INC', id: cart.ProductID, cart })}>
                                 <Icon icon={ic_add} size={24} />
@@ -57,7 +57,7 @@ export const Cart = ({ user }) => {
                             </div>
 
                             <div className='cart-price'>
-                                Rs {cart.TotalProductPrice}.00
+                                {cart.TotalProductPrice}.00 MAD
                             </div>
 
                             <button className='delete-btn' onClick={() => dispatch({ type: 'DELETE', id: cart.ProductID, cart })}>
