@@ -49,12 +49,13 @@
 
 .login-form .remember-me {
     display: flex;
-    align-items: center;
-    margin: 10px 0;
+    align-items: baseline;
+    justify-content: flex-start;
 }
 
 .login-form .remember-me input {
     margin-right: 5px;
+    width: 20px;
 }
 
 .login-btn {

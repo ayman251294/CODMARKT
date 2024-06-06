@@ -4,15 +4,15 @@ import 'firebase/storage';
 import 'firebase/firestore';
 import 'firebase/auth'
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDSGu760OOAqGh7DmmnN4rsFKzJw_OgR40",
-  authDomain: "ecommerce-website-85737.firebaseapp.com",
-  projectId: "ecommerce-website-85737",
-  storageBucket: "ecommerce-website-85737.appspot.com",
-  messagingSenderId: "893071101658",
-  appId: "1:893071101658:web:86210a42d39b20c52f9fe3",
-  measurementId: "G-QZ8QDPE6QH",
-  databaseURL: "https://ecommerce-website-85737.firebaseio.com"
+  apiKey: "AIzaSyAeHCWiHfLUtc8UUPdJ7YIYIu_2O0YTZSM",
+  authDomain: "codmarkt-ea9c4.firebaseapp.com",
+  databaseURL: "https://codmarkt-ea9c4.firebaseio.com",
+  projectId: "codmarkt-ea9c4",
+  storageBucket: "codmarkt-ea9c4.appspot.com",
+  messagingSenderId: "507272403886",
+  appId: "1:507272403886:web:e5d6938077b06c4098463f"
 };
 
 firebase.initializeApp(firebaseConfig);
