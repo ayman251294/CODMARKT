@@ -31,7 +31,9 @@ export const Cart = ({ user }) => {
                 <div className='cart-container'>
                     {
                         shoppingCart.length === 0 && <>
+
                             <div>No items in your cart? Slow internet causing trouble? (Try refreshing the page.) Or maybe you're not logged in.</div>
+
                             <div><Link to="/">Return to Home page</Link></div>
                         </>
                     }
