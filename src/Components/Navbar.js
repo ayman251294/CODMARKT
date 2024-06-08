@@ -22,7 +22,9 @@ export const Navbar = ({ user }) => {
     return (
         <div className='navbox'>
             <div className='leftside'>
-                <img src={logo} alt="" />
+                <Link to="/addproducts">
+                    <img src={logo} alt="Logo" />
+                </Link>
             </div>
             {!user && <div className='rightside'>
                 <span><Link to="signup" className='navlink'>SIGN UP</Link></span>
