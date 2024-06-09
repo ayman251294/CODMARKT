@@ -1,3 +1,4 @@
+// Update the product image state when a file is selected
 import React, { useContext, useEffect } from 'react'
 import { CartContext } from '../Global/CartContext'
 import { Navbar } from './Navbar';
@@ -9,14 +10,19 @@ import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import { auth } from '../Config/Config'
 
+// Define the Cart component
 export const Cart = ({ user }) => {
 
+    // Use the CartContext to get the shopping cart, dispatch function, total price, and total quantity
     const { shoppingCart, dispatch, totalPrice, totalQty } = useContext(CartContext);
 
+    // Use the useHistory hook for navigation
     const history = useHistory();
 
+    // Use the useEffect hook to check if the user is authenticated
     useEffect(() => {
         auth.onAuthStateChanged(user => {
+            // If the user is not authenticated, redirect them to the login page
             if (!user) {
                 history.push('/login');
             }

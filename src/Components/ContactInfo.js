@@ -1,8 +1,11 @@
+// Importing necessary libraries and components
 import React from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa'; // Importing WhatsApp icon from react-icons
 
+// ContactInfo component
 export const ContactInfo = () => {
     return (
+        // Container for contact information
         <div className="contact-container">
             <h2 className="contact-heading">Contact Us</h2>
             <p className="contact-info">Phone: +1234567890</p>

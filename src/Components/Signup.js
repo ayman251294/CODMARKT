@@ -1,34 +1,44 @@
+// Importing necessary libraries and components
 import React, { useState } from 'react';
-import { auth, db } from '../Config/Config';
-import { Link, useHistory } from 'react-router-dom';
-import '../Signup.css';
-import logo from '../images/ecommerceland.png'
+import { auth, db } from '../Config/Config'; // Importing auth and db from Config
+import { Link, useHistory } from 'react-router-dom'; // Importing Link and useHistory from react-router-dom for navigation
+import '../Signup.css'; // Importing CSS for this component
+import logo from '../images/ecommerceland.png' // Importing logo image
 
+// Signup component
 export const Signup = () => {
+
+    // Defining state variables for name, email, password and error
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    // Using the useHistory hook for redirecting users
     const history = useHistory();
 
+    // Function to handle signup
     const signup = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Preventing default form submission
+        // Creating a new user with email and password
         auth.createUserWithEmailAndPassword(email, password).then((cred) => {
+            // If successful, add the user's data to the database
             db.collection('SignedUpUsersData').doc(cred.user.uid).set({
                 Name: name,
                 Email: email,
                 Password: password
             }).then(() => {
+                // If successful, clear the form and redirect to login page
                 setName('');
                 setEmail('');
                 setPassword('');
                 setError('');
                 history.push('/login');
-            }).catch(err => setError(err.message));
-        }).catch(err => setError(err.message));
+            }).catch(err => setError(err.message)); // If there's an error, set the error state
+        }).catch(err => setError(err.message)); // If there's an error, set the error state
     }
 
+    // Rendering the Signup component
     return (
         <div className='signup-container'>
             <form className='signup-form' onSubmit={signup}>

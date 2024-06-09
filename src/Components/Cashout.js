@@ -1,16 +1,20 @@
+// Importing necessary libraries and components
 import React, { useState, useEffect, useContext } from 'react'
 import { auth, db } from '../Config/Config'
 import { CartContext } from '../Global/CartContext'
 import { Navbar } from './Navbar';
 import { useHistory } from 'react-router-dom'
 
+// Cashout component
 export const Cashout = (props) => {
 
+    // Using the useHistory hook for redirecting users
     const history = useHistory();
 
+    // Using the CartContext to get the total price and quantity
     const { totalPrice, totalQty, dispatch } = useContext(CartContext);
 
-    // defining state
+    // defining state variables
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [cell, setCell] = useState('');
@@ -18,24 +22,29 @@ export const Cashout = (props) => {
     const [error, setError] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
 
+    // useEffect hook to check if the user is authenticated
     useEffect(() => {
         auth.onAuthStateChanged(user => {
             if (user) {
+                // If user is authenticated, get the user's data
                 db.collection('SignedUpUsersData').doc(user.uid).onSnapshot(snapshot => {
                     setName(snapshot.data().Name);
                     setEmail(snapshot.data().Email);
                 })
             }
             else {
+                // If user is not authenticated, redirect to login page
                 history.push('/login')
             }
         })
     })
 
+    // Function to handle the cashout submit
     const cashoutSubmit = (e) => {
         e.preventDefault();
         auth.onAuthStateChanged(user => {
             if (user) {
+                // If user is authenticated, save the buyer's info
                 const date = new Date();
                 const time = date.getTime();
                 db.collection('Buyer-info ' + user.uid).doc('_' + time).set({
@@ -46,6 +55,7 @@ export const Cashout = (props) => {
                     BuyerPayment: totalPrice,
                     BuyerQuantity: totalQty
                 }).then(() => {
+                    // After saving the info, clear the cell and address fields, empty the cart and show a success message
                     setCell('');
                     setAddress('');
                     dispatch({ type: 'EMPTY' })

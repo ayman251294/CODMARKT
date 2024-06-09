@@ -1,7 +1,9 @@
+// Importing necessary libraries and components
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
+// Footer component
 export const Footer = () => {
     return (
         <footer style={{backgroundColor: '#f8f9fa', padding: '10px', width: '100%', bottom: '0'}}>
@@ -25,4 +27,5 @@ export const Footer = () => {
     );
 }
 
+// Exporting the Footer component as the default export
 export default Footer;

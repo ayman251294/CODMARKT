@@ -1,14 +1,19 @@
+// Importing necessary libraries and components
 import React, { useContext } from 'react'
-import { ProductsContext } from '../Global/ProductsContext'
-import { CartContext } from '../Global/CartContext'
-import imageUrl from '../images/slide.jpg'
+import { ProductsContext } from '../Global/ProductsContext' // Importing ProductsContext
+import { CartContext } from '../Global/CartContext' // Importing CartContext
+import imageUrl from '../images/slide.jpg' // Importing image
 
+// Products component
 export const Products = () => {
 
+    // Using the ProductsContext to get the products
     const { products } = useContext(ProductsContext);
 
+    // Using the CartContext to get the dispatch function
     const { dispatch } = useContext(CartContext);
 
+    // Rendering the Products component
     return (
         <>
             {products.length !== 0 && <img className='slideer' src={imageUrl} alt="Product" />}
