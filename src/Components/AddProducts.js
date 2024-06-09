@@ -66,8 +66,8 @@ export const AddProducts = ({ user }) => {
     }, [history]);
 
     return (
+        <><Navbar user={user} />
         <div className="container">
-            <Navbar user={user} />
             <h2>Add New Product</h2>
             <form autoComplete="off" onSubmit={addProduct} className="form-group">
                 <label htmlFor="product-name">Product Name</label>
@@ -76,29 +76,26 @@ export const AddProducts = ({ user }) => {
                     className="form-control"
                     required
                     onChange={(e) => setProductName(e.target.value)}
-                    value={productName}
-                />
+                    value={productName} />
                 <label htmlFor="product-price">Product Price</label>
                 <input
                     type="number"
                     className="form-control"
                     required
                     onChange={(e) => setProductPrice(e.target.value)}
-                    value={productPrice}
-                />
+                    value={productPrice} />
                 <label htmlFor="product-img">Product Image</label>
                 <input
                     type="file"
                     className="form-control"
                     id="file"
                     required
-                    onChange={productImgHandler}
-                />
+                    onChange={productImgHandler} />
                 <button type="submit" className="btn btn-success btn-md mybtn">
                     Add Product
                 </button>
             </form>
             {error && <span className="error-msg">{error}</span>}
-        </div>
+        </div></>
     );
 };

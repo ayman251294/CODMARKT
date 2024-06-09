@@ -35,6 +35,13 @@ img {
     width: 100%;
 }
 
+.slideer {
+    border-style: none;
+    width: 100%;
+    display: block;
+    margin-top: 85px;
+}
+
 
 @media(max-width: 768px) {
     .slideer {
@@ -43,6 +50,7 @@ img {
     display: block;
     margin-left: -100%;
     margin-right: auto;
+    margin-top: 70px;
     }
 }
 
@@ -51,21 +59,29 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    /* align-items: center; */
-    padding: 30px;
-    /* flex-direction: column; */
-    width: 1100px;
+    padding: 30px 70px 0px 70px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    /* add a background color to ensure the navbar is visible over the other content */
+    background-color: #ffffff; 
+    z-index: 9999;
 }
 
 @media(max-width: 768px) {
     .navbox {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    /* align-items: center; */
-    padding: 30px;
-    /* flex-direction: column; */
-    width: 460px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 30px 0 0 30px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        /* add a background color to ensure the navbar is visible over the other content */
+        background-color: #ffffff; 
+        z-index: 9999;
     }
 }
 
@@ -384,4 +400,8 @@ h1 {
 
 .whatsapp-button i {
     margin-right: 5px; /* Add some space between the icon and the text */
+}
+
+.container-add {
+    margin-top: 100px;
 }
